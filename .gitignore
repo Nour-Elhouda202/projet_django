@@ -1,0 +1,36 @@
+# Fichiers Python générés
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+*.egg
+
+# Base de données SQLite (ne pas versionner !)
+db.sqlite3
+db.sqlite3-journal
+
+# Fichiers de migrations (sauf __init__.py)
+*/migrations/*.py
+!*/migrations/__init__.py
+
+# Environnement virtuel Python
+venv/
+.env/
+.venv/
+env/
+
+# Fichiers sensibles (mots de passe, clés API)
+.env
+.env.local
+secrets.json
+
+# Dossiers de médias/téléchargements (Django)
+media/
+staticfiles/
+
+# Fichiers de logs
+*.log
+
+# IDE/Editeurs (VS Code, PyCharm, etc.)
+.vscode/
+.idea/git status
