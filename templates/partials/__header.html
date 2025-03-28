@@ -1,0 +1,64 @@
+{%load static%}
+<header class="header">
+    <div class="logo">
+        <img src="{% static "asset/image/Image5.png" %}" alt="">
+        <h4>الجزائر</h4>
+    </div>
+    <nav class="nav-links">
+      <div> 
+          <input type="text" placeholder="بحث...">
+      </div>
+      <div class="dropdown">
+          <a class="dropa" href="{% url 'title' 1 %}">التاريخ</a>
+            <div class="dropdown-content">
+              <a href="{% url 'subtitle' 2%}">الحضارات القديمة</a>
+              <a href="{% url "subtitle" 1 %}">الاستعمار الفرنسي</a>
+              <a href="{% url "subtitle" 1 %}">لفترة الاسلامية والعثمانية</a>
+          </div>
+      </div>
+      <div class="dropdown">
+          <a class="dropa"href="{% url 'title' 2 %}">المواقع الطبيعية</a>
+          <div class="dropdown-content">
+              <a href="{% url "subtitle" 1%}">الجبال والمتنزهات الوطنية</a>
+              <a href="{% url "subtitle" 1%}">الصحراء</a>
+              <a href="{% url "subtitle" 1%}">السواحل والشواطئ</a>
+              <a href="{% url "subtitle" 1%}">الواحات والوديان</a>
+              <a href="{% url "subtitle" 1%}">البحيرات والينابيع</a>
+          </div>
+      </div>
+      <div class="dropdown">
+          <a class="dropa" href="{% url 'title' 1 %}">التقاليد والحرف اليدوية</a>
+          <div class="dropdown-content">
+              <a href="{% url "subtitle" 1 %}">الملابس التقليدية</a>
+              <a href="{% url "subtitle" 1 %}">الموسيقى والرقص</a>
+              <a href="{% url "subtitle" 1 %}">المطبخ الجزائري</a>
+              <a href="{% url "subtitle" 1 %}">الحرف</a>
+          </div>
+      </div>
+      <div class="dropdown">
+          <a class="dropa" href="{% url 'books' %}">الكتب</a>
+          <div class="dropdown-content">
+              <a href="{% url "subtitle" 1 %}">الحضارات القديمة</a>
+              <a href="{% url "subtitle" 1  %}">الاستعمار الفرنسي</a>
+              <a href="{% url "subtitle" 1 %}"> لفترة الاسلامية والعثمانية</a>
+          </div>
+      </div>
+      <div class="dropdown">
+          <a class="dropa" href="{% url 'title' 1 %}">بودكاست</a>
+          <div class="dropdown-content">
+             
+              <a href="{% url "subtitle" 1 %}">الحضارات القديمة</a>
+              <a href="{% url "subtitle" 1 %}">الاستعمار الفرنسي</a>
+              <a href="{% url "subtitle" 1 %}"> لفترة الاسلامية والعثمانية</a>
+          </div>
+      </div>
+      <div class="dropdown">
+          <a class="dropa">لعبة</a>
+          <div class="dropdown-content">
+              <span>الحضارات القديمة</span>
+              <span>الاستعمار الفرنسي</span>
+              <span>لفترة الاسلامية والعثمانية</span>
+          </div>
+      </div>
+  </nav>
+  </header>

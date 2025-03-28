@@ -1,0 +1,116 @@
+{% extends "base.html" %} {% block title %}home{% endblock title %} {% block content %} {% load static %}
+
+<main>
+  <section class="bookTypesOverlay" id="bookTypesOverlay">
+    <h2>أنواع الكتب التاريخية الجزائرية</h2>
+
+    <div class="book-type-category">
+      <h3>الفترات التاريخية</h3>
+      <ul class="book-type-list">
+        <li><a href="#">العصر ما قبل الإسلام</a></li>
+        <li><a href="#">الفترة الإسلامية</a></li>
+        <li><a href="#">العصر العثماني</a></li>
+        <li><a href="#">الاستعمار الفرنسي</a></li>
+        <li><a href="#">ثورة التحرير</a></li>
+      </ul>
+    </div>
+
+    <div class="book-type-category">
+      <h3>الشخصيات التاريخية</h3>
+      <ul class="book-type-list">
+        <li><a href="#">الأمير عبد القادر</a></li>
+        <li><a href="#">أحمد باي</a></li>
+        <li><a href="#">مصالي الحاج</a></li>
+        <li><a href="#">شهداء الثورة</a></li>
+      </ul>
+    </div>
+
+    <div class="book-type-category">
+      <h3>المواضيع الخاصة</h3>
+      <ul class="book-type-list">
+        <li><a href="#">المقاومة الشعبية</a></li>
+        <li><a href="#">الأماكن التاريخية</a></li>
+        <li><a href="#">التراث الثقافي</a></li>
+        <li><a href="#">الذاكرة الوطنية</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <button id="toggleBookTypesButton" onclick="toggleSideOverlay()">📚</button>
+
+  <section class="book-details-container">
+    <div class="book-header">
+      <div class="book-cover">
+        {% if book.cover_image %}
+        <img src="{{ book.cover_image }}" alt="غلاف الكتاب" />
+    {% else %}
+        <div class="no-cover d-flex align-items-center justify-content-center bg-light" style="height: 300px;">
+            <span class="text-muted">Pas de couverture disponible</span>
+        </div>
+    {% endif %}
+       
+      </div>
+      <div class="book-info">
+        <h1 class="book-title">{{ book.title }}</h1>
+        <p class="book-author">  {% if book.author %}
+          {{ book.author }}
+      {% else %}
+          Auteur inconnu
+      {% endif %}</p>
+
+        <div class="book-meta">
+          <span class="book-meta-item">⭐️ 4.5/5</span>
+          <span class="book-meta-item">📖 رواية</span>
+          <span class="book-meta-item">🏷 الأكثر مبيعاً</span>
+        </div>
+        {% if book.description %}
+        <div class="book-description">
+          <p>
+            {{ book.description}}
+          </p>
+        </div>
+        {% endif %}
+
+        <button class="btn more-details-btn" onclick="toggleSidePanel()">
+          المزيد من التفاصيل
+        </button>
+
+        <div class="book-section">
+          <h3 class="section-title">عن المؤلف</h3>
+          <p>
+            اسم المؤلف هو كاتب معروف له أكثر من 20 كتاباً. تم ترجمة أعماله إلى
+            أكثر من 30 لغة وحصل على عدة جوائز أدبية عالمية.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="book-section">
+      <h3 class="section-title">مواصفات الكتاب</h3>
+      <p><strong>التنسيق:</strong> غلاف ورقي</p>
+      <p><strong>الأبعاد:</strong> 14 × 21 سم</p>
+      <p><strong>الوزن:</strong> 450 جرام</p>
+    </div>
+
+    <div class="book-section">
+      <h3 class="section-title">تقييمات القراء</h3>
+      <div
+        style="
+          background: #fff;
+          padding: 15px;
+          border-radius: 5px;
+          margin-bottom: 15px;
+        "
+      >
+        <p><strong>أحمد محمد</strong> ⭐️⭐️⭐️⭐️⭐️</p>
+        <p>"كتاب رائع من البداية إلى النهاية. أنصح به بشدة!"</p>
+      </div>
+      <div style="background: #fff; padding: 15px; border-radius: 5px">
+        <p><strong>فاطمة علي</strong> ⭐️⭐️⭐️⭐️</p>
+        <p>"قصة مشوقة، مكتوبة بشكل جيد. فقط الفصل الأخير خيب ظني قليلاً."</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+{% endblock content%}

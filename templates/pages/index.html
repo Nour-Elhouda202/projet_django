@@ -1,0 +1,56 @@
+{% extends "base.html" %} 
+{% block title %}home{% endblock title %}
+{% block content %} 
+{% load static %}
+<main>
+  <div class="hero" id="hero">
+    <div class="icon-stack">
+      <!-- Icône Facebook -->
+      <div class="icon"><i class="fab fa-facebook-f"></i></div>
+      <!-- Icône Instagram -->
+      <div class="icon"><i class="fab fa-instagram"></i></div>
+      <!-- Icône Gmail -->
+      <div class="icon"><i class="fab fa-google"></i></div>
+  </div>
+    
+  
+    <div>
+      <h1>مرحبا بك<br />في الجزائر</h1>
+    </div>
+  </div>
+  <div class="video">
+    <video width="600" height="360" controls>
+      <source src="{% static "asset/image/1. Introduction.mp4" %}"
+      type="video/mp4">
+    </video>
+  </div>
+  <div class="search">
+    <div>
+      <h2>ماهو موضوع الذي تريده ؟</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="{% static "asset/image/photo_2025-03-02_17-07-52.jpg" %}"
+          alt="notfound" class="card_image">
+          <a href="">تاريخ الجزائر</a>
+        </div>
+        <div class="card">
+          <img src="{% static "asset/image/photo_2025-03-02_17-07-52.jpg" %}"
+          alt="notfound" class="card_image">
+          <a href="">المواقع الطبيعية</a>
+        </div>
+        <div class="card">
+          <img src="{% static "asset/image/photo_2025-03-02_17-07-52.jpg" %}"
+          alt="notfound" class="card_image">
+          <a href="">التقاليد العادات</a>
+        </div>
+        <div class="card">
+          <img src="{% static "asset/image/photo_2025-03-02_17-07-52.jpg" %}"
+          alt="notfound" class="card_image">
+          <a href="">الكتب</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock content%}

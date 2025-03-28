@@ -1,0 +1,313 @@
+:root {
+    --primary-color: #e74c3c;
+    --text-light: rgba(255, 255, 255, 0.673);
+    --header-bg: rgba(124, 124, 124, 0.277);
+    --footer-bg: #2c3e50;
+    --footer-text: #ecf0f1;
+    --hover-color: #3498db;
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    direction: rtl;
+    font-family: 'Amiri', serif;
+}
+
+.header {
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--header-bg);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    color: white;
+    font-size: 1.8rem;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color var(--transition-speed) ease;
+}
+
+.nav-links a:hover {
+    color: var(--hover-color);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px;
+    overflow: hidden;
+    right: 0;
+    top: 100%;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.nav-links input[type="text"] {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+    transition: all var(--transition-speed) ease;
+}
+
+.nav-links input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+input[type=text] {
+    width: 130px;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+
+.nav-links input[type="text"]:focus {
+    border-color: var(--hover-color);
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+.hero {
+    background-image: url('../image/331351-alexfas01.jpg');
+    text-align: center;
+    color: white;
+    padding: 15rem 5% 5rem;
+    max-width: none;
+    margin: 0 auto;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    transition: background-image 1s ease-in-out;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-family: 'Playfair Display', serif;
+    line-height: 1.1;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    animation: fadeInUp 1s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: -1;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 2rem 5%;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-section1, .footer-section2 {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.link-list ul {
+    list-style: none;
+   
+}
+
+.link-list a {
+    color: var(--footer-text);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+.link-list a:hover {
+    color: var(--hover-color);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    color: var(--footer-text);
+    transition: color var(--transition-speed) ease;
+}
+
+.social-icons a:hover {
+    color: var(--hover-color);
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero {
+        padding: 10rem 5% 3rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .footer-grid {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-bar button {
+        padding: 0.8rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
+video {
+    width: 100%; /* Ajustez la largeur selon vos besoins */
+    max-width: 640px; /* Taille maximale */
+    height: auto; /* Maintient le ratio d'aspect */
+    border-radius: 15px; /* Coins arrondis */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Ombre portée */
+    display: block;
+    margin: 0 auto; /* Centrer la vidéo */
+    transform-origin: center; /* Point d'origine pour les transformations */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition douce */
+}
+
+video:hover {
+    transform: scale(1.05); /* Légère augmentation de la taille au survol */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Ombre plus prononcée au survol */
+}
+
+
+
+ 
+
+
+

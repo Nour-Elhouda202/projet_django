@@ -1,0 +1,71 @@
+{% extends "base.html" %} {% block title %}home{% endblock title %} {% block content %} {% load static %}
+
+<main>
+  <section class="bookTypesOverlay" id="bookTypesOverlay">
+    <h2>أنواع الكتب التاريخية الجزائرية</h2>
+    
+    <div class="book-type-category">
+        <h3>الفترات التاريخية</h3>
+        <ul class="book-type-list">
+            <li><a href="#">العصر ما قبل الإسلام</a></li>
+            <li><a href="#">الفترة الإسلامية</a></li>
+            <li><a href="#">العصر العثماني</a></li>
+            <li><a href="#">الاستعمار الفرنسي</a></li>
+            <li><a href="#">ثورة التحرير</a></li>
+        </ul>
+    </div>
+    
+    <div class="book-type-category">
+        <h3>الشخصيات التاريخية</h3>
+        <ul class="book-type-list">
+            <li><a href="#">الأمير عبد القادر</a></li>
+            <li><a href="#">أحمد باي</a></li>
+            <li><a href="#">مصالي الحاج</a></li>
+            <li><a href="#">شهداء الثورة</a></li>
+        </ul>
+    </div>
+    
+    <div class="book-type-category">
+        <h3>المواضيع الخاصة</h3>
+        <ul class="book-type-list">
+            <li><a href="#">المقاومة الشعبية</a></li>
+            <li><a href="#">الأماكن التاريخية</a></li>
+            <li><a href="#">التراث الثقافي</a></li>
+            <li><a href="#">الذاكرة الوطنية</a></li>
+        </ul>
+    </div>
+  </section>
+
+  <button id="toggleBookTypesButton" onclick="toggleSideOverlay()">📚</button>
+ 
+<section class="section-book">
+    {% for book in page_obj  %}
+    <div class="book-card">
+      {% if book.cover %}
+      <img src="{{ book.cover }}" alt="">
+    {% else %}
+      <div class="cover-placeholder">
+        <i class="fas fa-book-open"></i>
+        <span>Aucune couverture</span>
+      </div>
+    {% endif %}
+      <div class="book-details">
+        <h6 class="book-title">{{book.title}}</h6>
+        <p class="book-author">{{ book.author|default:"Auteur inconnu" }}</p>
+        
+       <div class="button">
+        <a href="{% url 'book' book_id=book.id %}" class="book-button">تعرف على المزيد</a>
+        <a href="" class="book-button">تحميل الكتاب</a>
+       </div>
+      </div>
+    </div>
+    
+    {% endfor %}
+
+
+  
+
+  </section>
+</main>
+
+{% endblock content %}

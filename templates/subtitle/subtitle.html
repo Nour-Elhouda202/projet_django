@@ -1,0 +1,133 @@
+{% extends "base2.html" %}
+{% load static %}
+{% block title %}{{ sub_title.subtitle_title }}{% endblock title %}
+{% block content %}
+    <main class="main">  
+        <div class="slideshow-container">
+            {% for image in sub_title.images.all %}
+                
+                <div class="mySlides fade">
+                    <div class="numbertext">{{ forloop.counter }} / {{ sub_title.images.count }}</div>
+                    <img src="{{ image.image.url }}" alt="{{ image.image.name }}" style="width:100%">
+                </div>
+            {% empty %}
+                <p>لا توجد صور متاحة.</p>
+            {% endfor %}
+
+    
+            <a class="prev" onclick="plusSlides(-1)">></a>
+            <a class="next" onclick="plusSlides(1)"><</a>
+        </div>
+
+    
+        <div style="text-align:center">
+            {% for image in sub_title.images.all %}
+                <span class="dot" onclick="currentSlide({{ forloop.counter }})"></span>
+            {% endfor %}
+        </div>
+
+        <section class="content-section" id="contentSection">
+            <h1>{{ sub_title.subtitle_title }}</h1>
+
+          
+            <div class="paragraphs">
+                {% for paragraph in paragraphs|slice:":1" %}
+                    <div class="paragraph">
+                        {% for sub_paragraph in paragraph %}
+                            {% if sub_paragraph.strip|first == "." %}
+                                
+                                <h4>{{ sub_paragraph.strip|slice:"1:" }}:</h4>
+                                
+                                {% if not forloop.last %}
+                                    {% with next_item=paragraph|slice:forloop.counter0|slice:"1:"|first %}
+                                        {% if next_item.strip|first != "." %}
+                                            <p class="inline-paragraph">{{ next_item.strip }}</p>
+                                        {% endif %}
+                                    {% endwith %}
+                                {% endif %}
+                            {% else %}
+                               
+                                <p>{{ sub_paragraph.strip }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+
+           
+            <div id="more-content" class="collapsed">
+                {% for paragraph in paragraphs|slice:"1:" %}
+                    <div class="paragraph">
+                        {% for sub_paragraph in paragraph %}
+                            {% if sub_paragraph.strip|first == "." %}
+                               
+                                 <ul>
+                                <li>
+                                <h4>{{ sub_paragraph.strip|slice:"1:" }}:</h4>  
+                                
+                                {% if not forloop.last %}
+                                    {% with next_item=paragraph|slice:forloop.counter0|slice:"1:"|first %}
+                                        {% if next_item.strip|first != "." %}
+                                            <p class="inline-paragraph">{{ next_item.strip }}</p>
+                                        {% endif %}
+                                    {% endwith %}
+                                {% endif %}
+                              
+                            </li>
+                                 </ul>
+                            {% else %}
+                               
+                                <p>{{ sub_paragraph.strip }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+
+           
+            <button id="see-more-btn" class="see-more-btn">رؤية المزيد</button>
+
+           
+            <div class="video-subtitle">
+                <video width="600" height="360" controls>
+                    <source src="{% static 'asset/image/video_2025-03-05_17-56-25.mp4' %}" type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+            </div>
+        </section>
+        <div class="search_title">
+            <div>
+              <h2> مواضيع ذات صلة</h2>
+              <div class="cards">
+                <div class="card">
+                  <img src="{% static "asset/image/photo_2025-03-02_17-07-52.jpg" %}"
+                  alt="notfound" class="card_image">
+                  <a href="">تاريخ الجزائر</a>
+                </div>
+                <div class="card">
+                  <img src="{% static "asset/image/photo_2025-03-02_17-07-52.jpg" %}"
+                  alt="notfound" class="card_image">
+                  <a href="">المواقع الطبيعية</a>
+                </div>
+                <div class="card">
+                  <img src="{% static "asset/image/photo_2025-03-02_17-07-52.jpg" %}"
+                  alt="notfound" class="card_image">
+                  <a href="">التقاليد العادات</a>
+                </div>
+                <div class="card">
+                  <img src="{% static "asset/image/photo_2025-03-02_17-07-52.jpg" %}"
+                  alt="notfound" class="card_image">
+                  <a href="">الكتب</a>
+                </div>
+                <div class="card">
+                    <img src="{% static "asset/image/photo_2025-03-02_17-07-52.jpg" %}"
+                    alt="notfound" class="card_image">
+                    <a href="">الكتب</a>
+                  </div>
+           
+                  </div>
+              </div>
+            </div>
+          </div>
+    </main>
+{% endblock content %} 

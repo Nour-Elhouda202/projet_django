@@ -1,0 +1,80 @@
+{% extends "base2.html" %} {% load static %} {% block tilte %}{{
+main_title.title }}{% endblock tilte %} {% block content %}
+
+<main class="main">
+  <div class="hero_title" id="hero_title" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 1) 100%), url('{{main_title.image.url}}');">
+    <h1>الفتوحات الاسلامية في الجزائر</h1>
+  </div>
+
+  <section class="content-section" id="contentSection">
+    <h1>{{ main_title.title }}</h1>
+    <div class="div1">
+      <div class="paragraphs">
+        <!-- Afficher seulement les 2 premiers paragraphes -->
+        {% for paragraph in paragraphs|slice:":1" %}
+        <div class="paragraph">{{ paragraph }}</div>
+        {% endfor %}
+
+        <!-- Contenu supplémentaire caché -->
+        <div id="more-content" class="collapsed">
+          {% for paragraph in paragraphs|slice:"2:" %}
+          <div class="paragraph">{{ paragraph }}</div>
+          {% endfor %}
+        </div>
+
+        <!-- Bouton "Voir plus -->
+        <a id="see-more-btn"> رؤية المزيد<span class="arrow-down">▼</span> </a>
+      </div>
+
+      {% if main_title.video %}
+      <div class="div2">
+        <video controls width="400">
+          <source src="{{ main_title.video.url }}" type="video/mp4" />
+          متصفحك لا يدعم تشغيل الفيديو.
+        </video>
+      </div>
+      {% elif forloop %}
+      <p>لا يوجد فيديو متاح.</p>
+      {% endif %}
+    </div>
+  </section>
+
+
+  <div class="search_title">
+    <div>
+      <h2> مواضيع ذات صلة</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="{% static "asset/image/photo_2025-03-02_17-07-52.jpg" %}"
+          alt="notfound" class="card_image">
+          <a href="">تاريخ الجزائر</a>
+        </div>
+        <div class="card">
+          <img src="{% static "asset/image/photo_2025-03-02_17-07-52.jpg" %}"
+          alt="notfound" class="card_image">
+          <a href="">المواقع الطبيعية</a>
+        </div>
+        <div class="card">
+          <img src="{% static "asset/image/photo_2025-03-02_17-07-52.jpg" %}"
+          alt="notfound" class="card_image">
+          <a href="">التقاليد العادات</a>
+        </div>
+        <div class="card">
+          <img src="{% static "asset/image/photo_2025-03-02_17-07-52.jpg" %}"
+          alt="notfound" class="card_image">
+          <a href="">الكتب</a>
+        </div>
+        <div class="card">
+            <img src="{% static "asset/image/photo_2025-03-02_17-07-52.jpg" %}"
+            alt="notfound" class="card_image">
+            <a href="">الكتب</a>
+          </div>
+   
+          </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+{% endblock content %}
